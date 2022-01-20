@@ -29,7 +29,30 @@ public class ClientService {
         Optional<Client> cli = repository.findById(id);
         Client entity = cli.orElseThrow(() -> new ResourceNotFoundExceptions("Cliente não encontrado"));
         return new ClientDTO(entity);
-
     }
 
+    @Transactional
+    public ClientDTO create(ClientDTO dto) {
+        Client entity = new Client();
+        copytDtoToEntity(dto, entity);
+        entity = repository.save(entity);
+        return new ClientDTO(entity);
+    }
+
+
+
+
+
+
+
+
+
+
+    private void copytDtoToEntity(ClientDTO dto, Client entity) {
+        entity.setName(dto.getName());
+        entity.setCpf(dto.getCpf());
+        entity.setIncome(dto.getIncome());
+        entity.setBirthDate(dto.getBirthDate());
+        entity.setChildren(dto.getChildren());
+    }
 }
