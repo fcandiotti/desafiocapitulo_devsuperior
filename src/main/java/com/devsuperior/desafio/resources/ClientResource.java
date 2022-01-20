@@ -1,7 +1,6 @@
 package com.devsuperior.desafio.resources;
 
 import com.devsuperior.desafio.dto.ClientDTO;
-import com.devsuperior.desafio.entities.Client;
 import com.devsuperior.desafio.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -45,6 +44,12 @@ public class ClientResource {
                 .buildAndExpand(dto.getId())
                 .toUri();
         return ResponseEntity.created(uri).body(dto);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ClientDTO> update(@PathVariable Long id, @RequestBody ClientDTO dto) {
+        dto = service.update(id, dto);
+        return ResponseEntity.ok().body(dto);
     }
 
 }
