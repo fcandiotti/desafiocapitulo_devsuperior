@@ -1,6 +1,7 @@
 package com.devsuperior.desafio.resources;
 
 import com.devsuperior.desafio.dto.ClientDTO;
+import com.devsuperior.desafio.entities.Client;
 import com.devsuperior.desafio.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -50,6 +51,12 @@ public class ClientResource {
     public ResponseEntity<ClientDTO> update(@PathVariable Long id, @RequestBody ClientDTO dto) {
         dto = service.update(id, dto);
         return ResponseEntity.ok().body(dto);
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        service.delete(id);
+        return ResponseEntity.noContent().build();
     }
 
 }
