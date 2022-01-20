@@ -21,7 +21,7 @@
 - Deletar recurso
 - Carga base de dados inicial
 
-#### **Testes com Postman:** <img height="25" src="C:\Users\ferna\OneDrive\Área de Trabalho\postman_macos_bigsur_icon_189815.png" width="25"/>
+#### **Testes com Postman:**
 
 ###### Busca paginada de clientes:
 
