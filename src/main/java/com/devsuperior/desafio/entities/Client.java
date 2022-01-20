@@ -6,7 +6,7 @@ import java.time.Instant;
 
 @Entity
 @Table(name = "tb_cliente")
-public class Cliente implements Serializable {
+public class Client implements Serializable {
     private static final long SerialVersionUID = 1;
 
     @Id
@@ -22,10 +22,10 @@ public class Cliente implements Serializable {
 
     private Integer children;
 
-    public Cliente() {
+    public Client() {
     }
 
-    public Cliente(Long id, String name, String cpf, Double income, Instant birthDate, Integer children) {
+    public Client(Long id, String name, String cpf, Double income, Instant birthDate, Integer children) {
         this.id = id;
         this.name = name;
         this.cpf = cpf;
@@ -98,10 +98,10 @@ public class Cliente implements Serializable {
             return false;
         if(getClass() != obj.getClass())
             return false;
-        Cliente cliente = (Cliente) obj;
+        Client client = (Client) obj;
         if  (id == null) {
             return false;
-        } else if (!id.equals(cliente.id))
+        } else if (!id.equals(client.id))
             return false;
         return true;
     }
